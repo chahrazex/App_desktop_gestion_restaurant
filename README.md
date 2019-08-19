@@ -1,2 +1,3 @@
 # javaFx_ui
-just for test
+# Project status
+Working on it now ....
