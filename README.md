@@ -1,5 +1,5 @@
 # javaFx_ui
 an application desktop for restaurant management
-# Vusil
+# Visuals
 # Project status
 Working on it now ....
