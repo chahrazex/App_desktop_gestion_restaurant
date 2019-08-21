@@ -72,7 +72,7 @@
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../resources/cat.png" />
+                              <Image url="@../resources/meals.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -87,7 +87,7 @@
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../resources/time.png" />
+                              <Image url="@../resources/drinks.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -218,10 +218,10 @@
             </AnchorPane>
             <ImageView fitHeight="41.0" fitWidth="40.0" layoutX="200.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/logo.png" />
+                  <Image url="@../resources/logo_rm.png" />
                </image>
             </ImageView>
-            <Label layoutX="240.0" layoutY="25.0" text="Chahrazed" textFill="WHITE">
+            <Label layoutX="251.0" layoutY="18.0" text="Chahrazed" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>

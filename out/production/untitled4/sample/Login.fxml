@@ -10,6 +10,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="649.0" prefWidth="1087.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Login">
@@ -71,6 +73,32 @@
                   <Pane layoutX="10.0" layoutY="210.0" prefHeight="72.0" prefWidth="387.0" style="-fx-background-radius: 0 0 20 20;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css" />
                </children>
             </VBox>
+            <Label contentDisplay="CENTER" layoutX="187.0" layoutY="256.0" prefHeight="101.0" prefWidth="247.0" text="Restaurant " textAlignment="JUSTIFY">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#a868a0" />
+                        <Stop color="#2d75e8" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="193.0" layoutY="339.0" prefHeight="101.0" prefWidth="263.0" text="Management ....." textAlignment="JUSTIFY">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#a868a0" />
+                        <Stop color="#2d75e8" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
