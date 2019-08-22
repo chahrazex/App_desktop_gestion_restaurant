@@ -18,7 +18,7 @@
    <children>
       <AnchorPane layoutY="-36.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 15; -fx-background-color: #131022;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-radius: 70;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css" />
+            <Pane layoutX="2.0" layoutY="-208.0" prefHeight="343.0" prefWidth="477.0" rotate="41.6" style="-fx-background-radius: 70 0 70 0;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css" />
             <VBox layoutX="618.0" layoutY="84.0" prefHeight="528.0" prefWidth="387.0">
                <children>
                   <Pane prefHeight="72.0" prefWidth="387.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
@@ -42,7 +42,7 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </ImageView>
-                              <JFXTextField fx:id="username" labelFloat="true" prefHeight="25.0" prefWidth="208.0" promptText="Username" unFocusColor="WHITE">
+                              <JFXTextField fx:id="username" labelFloat="true" prefHeight="25.0" prefWidth="208.0" promptText="Username" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" unFocusColor="WHITE">
                                  <VBox.margin>
                                     <Insets left="50.0" right="50.0" top="20.0" />
                                  </VBox.margin>
@@ -50,7 +50,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXPasswordField fx:id="password" labelFloat="true" promptText="Password" unFocusColor="WHITE">
+                              <JFXPasswordField fx:id="password" labelFloat="true" promptText="Password" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" unFocusColor="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -73,7 +73,7 @@
                   <Pane layoutX="10.0" layoutY="210.0" prefHeight="72.0" prefWidth="387.0" style="-fx-background-radius: 0 0 20 20;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css" />
                </children>
             </VBox>
-            <Label contentDisplay="CENTER" layoutX="187.0" layoutY="256.0" prefHeight="101.0" prefWidth="247.0" text="Restaurant " textAlignment="JUSTIFY">
+            <Label contentDisplay="CENTER" layoutX="187.0" layoutY="256.0" prefHeight="101.0" prefWidth="247.0" text="Restaurant " textAlignment="JUSTIFY" visible="false">
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -86,7 +86,7 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <Label contentDisplay="CENTER" layoutX="193.0" layoutY="339.0" prefHeight="101.0" prefWidth="263.0" text="Management ....." textAlignment="JUSTIFY">
+            <Label contentDisplay="CENTER" layoutX="193.0" layoutY="339.0" prefHeight="101.0" prefWidth="263.0" text="Management ....." textAlignment="JUSTIFY" visible="false">
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -99,6 +99,11 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
+            <ImageView fitHeight="341.0" fitWidth="340.0" layoutX="122.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/logo-rest1.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

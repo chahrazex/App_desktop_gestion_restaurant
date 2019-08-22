@@ -42,7 +42,7 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </ImageView>
-                              <JFXTextField fx:id="username" labelFloat="true" prefHeight="25.0" prefWidth="208.0" promptText="Username" unFocusColor="WHITE">
+                              <JFXTextField fx:id="username" labelFloat="true" prefHeight="25.0" prefWidth="208.0" promptText="Username" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" unFocusColor="WHITE">
                                  <VBox.margin>
                                     <Insets left="50.0" right="50.0" top="20.0" />
                                  </VBox.margin>
@@ -50,7 +50,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXPasswordField fx:id="password" labelFloat="true" promptText="Password" unFocusColor="WHITE">
+                              <JFXPasswordField fx:id="password" labelFloat="true" promptText="Password" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" unFocusColor="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

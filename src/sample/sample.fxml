@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <AnchorPane layoutY="14.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #030307; -fx-background-radius: 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -31,7 +31,10 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField prefWidth="142.0" style="-fx-background-color: #131022; -fx-background-radius: 5;" />
+                              <TextField fx:id="numMeals" editable="false" prefWidth="142.0" style="-fx-background-color: #131022; -fx-background-radius: 5;" styleClass="textField">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></TextField>
                            </children>
                            <HBox.margin>
                               <Insets top="3.0" />
@@ -44,7 +47,10 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #131022; -fx-background-radius: 5;" />
+                              <TextField fx:id="numDrinks" editable="false" prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #131022; -fx-background-radius: 5;">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></TextField>
                            </children>
                            <HBox.margin>
                               <Insets top="3.0" />
@@ -68,7 +74,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Button mnemonicParsing="false" prefWidth="250.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Meals" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#showMeals" prefWidth="250.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Meals" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -83,7 +89,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefWidth="250.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Drinks" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#showDrinks" prefWidth="250.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Drinks" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -112,110 +118,6 @@
                   </Button>
                </children>
             </VBox>
-            <AnchorPane layoutX="200.0" layoutY="63.0" prefHeight="558.0" prefWidth="862.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="63.0">
-               <children>
-                  <VBox layoutX="-51.0" prefHeight="558.0" prefWidth="278.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <JFXTextField labelFloat="true" prefHeight="31.0" prefWidth="231.0" promptText="No. of meal">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" top="57.0" />
-                           </VBox.margin>
-                        </JFXTextField>
-                        <JFXTextField labelFloat="true" promptText="Name of meal">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
-                        </JFXTextField>
-                        <JFXTextField labelFloat="true" promptText="Price of meal">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
-                        </JFXTextField>
-                        <ComboBox prefHeight="27.0" prefWidth="247.0" promptText="Type of meal" stylesheets="@../css/fullpackstyling.css">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" top="20.0" />
-                           </VBox.margin>
-                        </ComboBox>
-                        <Button mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Add meal" textFill="WHITE">
-                           <graphic>
-                              <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/cat.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="32.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button layoutX="10.0" layoutY="270.0" mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Edit meal" textFill="WHITE">
-                           <graphic>
-                              <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/cat.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Button>
-                        <Button layoutX="10.0" layoutY="311.0" mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete meal" textFill="WHITE">
-                           <graphic>
-                              <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/cat.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete all meal" textFill="WHITE">
-                           <graphic>
-                              <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/cat.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Button>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="278.0" layoutY="22.0" prefHeight="533.0" prefWidth="506.0" spacing="18.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="22.0">
-                     <children>
-                        <JFXTextField labelFloat="true" prefHeight="25.0" prefWidth="501.0" promptText="Search" />
-                        <TableView prefHeight="457.0" prefWidth="506.0" style="-fx-border-color: #131022;">
-                          <columns>
-                            <TableColumn prefWidth="87.0" text="No. of meal" />
-                            <TableColumn prefWidth="87.0" text="Name of meal" />
-                              <TableColumn prefWidth="75.0" text="Type of meal" />
-                              <TableColumn prefWidth="75.0" text="Price of meal" />
-                          </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
             <ImageView fitHeight="41.0" fitWidth="40.0" layoutX="200.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/logo_rm.png" />
@@ -226,30 +128,53 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="263.0" layoutY="73.0" prefHeight="558.0" prefWidth="809.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" visible="false">
+            <AnchorPane fx:id="Drinks" layoutX="263.0" layoutY="73.0" prefHeight="558.0" prefWidth="862.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="63.0">
                <children>
-                  <VBox prefHeight="558.0" prefWidth="278.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox prefHeight="558.0" prefWidth="278.0" spacing="9.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <JFXTextField labelFloat="true" prefHeight="31.0" prefWidth="231.0" promptText="No. of drink">
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="278.0">
+                           <children>
+                              <Label text="N° of drink :" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="NoDrink" labelFloat="true" prefHeight="31.0" prefWidth="178.0" />
+                           </children>
                            <VBox.margin>
-                              <Insets left="20.0" right="20.0" top="57.0" />
+                              <Insets top="56.0" />
                            </VBox.margin>
-                        </JFXTextField>
-                        <JFXTextField labelFloat="true" promptText="Name of drink">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
-                        </JFXTextField>
-                        <JFXTextField labelFloat="true" promptText="Price of drink">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
-                        </JFXTextField>
-                        <ComboBox prefHeight="27.0" prefWidth="247.0" promptText="Type of drink" stylesheets="@../css/fullpackstyling.css">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" top="20.0" />
-                           </VBox.margin>
-                        </ComboBox>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="66.0" prefWidth="278.0" spacing="5.0">
+                           <children>
+                              <Label text="Name of drink :" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="NameDrink" labelFloat="true" prefHeight="25.0" prefWidth="154.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="567.0" prefHeight="66.0" prefWidth="278.0" spacing="5.0">
+                           <children>
+                              <Label text="Price of drink :" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="PriceDrink" labelFloat="true" prefHeight="25.0" prefWidth="161.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="585.0" prefHeight="73.0" prefWidth="278.0" spacing="5.0">
+                           <children>
+                              <Label text="Type of drink :" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="TypeDrink" prefHeight="27.0" prefWidth="162.0" promptText="Choose a type" stylesheets="@../css/fullpackstyling.css" />
+                           </children>
+                        </HBox>
                         <Button mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Add drink" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
@@ -262,7 +187,7 @@
                               <Font size="15.0" />
                            </font>
                            <VBox.margin>
-                              <Insets top="32.0" />
+                              <Insets />
                            </VBox.margin>
                         </Button>
                         <Button layoutX="10.0" layoutY="270.0" mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Edit drink" textFill="WHITE">
@@ -312,16 +237,161 @@
                         </Button>
                      </children>
                   </VBox>
-                  <VBox layoutX="278.0" layoutY="22.0" prefHeight="533.0" prefWidth="506.0" spacing="18.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="22.0">
+                  <VBox layoutX="278.0" layoutY="22.0" prefHeight="512.0" prefWidth="559.0" spacing="18.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="22.0">
                      <children>
-                        <JFXTextField labelFloat="true" prefHeight="25.0" prefWidth="501.0" promptText="Search" />
-                        <TableView prefHeight="457.0" prefWidth="506.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Search :" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField labelFloat="true" prefHeight="25.0" prefWidth="501.0" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="TableDrink" prefHeight="483.0" prefWidth="559.0">
                            <columns>
                               <TableColumn prefWidth="87.0" text="No. of drink" />
                               <TableColumn prefWidth="87.0" text="Name of drink" />
                               <TableColumn prefWidth="75.0" text="Type of drink" />
                               <TableColumn prefWidth="75.0" text="Price of drink" />
                            </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="Meals" prefHeight="558.0" prefWidth="862.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" visible="false" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="63.0">
+               <children>
+                  <VBox layoutX="-51.0" prefHeight="558.0" prefWidth="278.0" spacing="9.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="272.0" spacing="5.0">
+                           <children>
+                              <Label text="N° of meal :" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="NoMeal" labelFloat="true" prefHeight="25.0" prefWidth="172.0" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="56.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="66.0" prefWidth="252.0" spacing="5.0">
+                           <children>
+                              <Label text="Name of meal :" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="NameMeal" labelFloat="true" prefHeight="25.0" prefWidth="152.0" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="66.0" prefWidth="278.0" spacing="5.0">
+                           <children>
+                              <Label text="Price of meal :" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="PriceMeal" labelFloat="true" prefHeight="25.0" prefWidth="159.0" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="73.0" prefWidth="278.0" spacing="5.0">
+                           <children>
+                              <Label text="Type of meal :" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="TypeMeal" prefHeight="27.0" prefWidth="163.0" promptText="Choose a type" styleClass="combo-box" stylesheets="@../css/fullpackstyling.css" />
+                           </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#AddMeals" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Add meal" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/cat.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="270.0" mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Edit meal" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/cat.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="311.0" mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete meal" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/cat.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete all meal" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/cat.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="278.0" layoutY="22.0" prefHeight="533.0" prefWidth="506.0" spacing="18.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="22.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Search :" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField labelFloat="true" prefHeight="25.0" prefWidth="501.0" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="table" prefHeight="483.0" prefWidth="559.0" style="-fx-border-color: #131022;">
+                          <columns>
+                            <TableColumn prefWidth="87.0" text="No. of meal" />
+                            <TableColumn prefWidth="87.0" text="Name of meal" />
+                              <TableColumn prefWidth="75.0" text="Type of meal" />
+                              <TableColumn prefWidth="75.0" text="Price of meal" />
+                          </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>

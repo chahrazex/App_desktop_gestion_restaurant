@@ -66,6 +66,7 @@
     -fx-background-color : #141124;
     -fx-border-color:  #515658;
     -fx-border-radius: 30;
+    -fx-prompt-text-fill: #fff;
 }
 .combo-box:hover
 {
@@ -78,6 +79,7 @@
     -fx-background-color : #141124;
     -fx-border-color:  #FFFF;
     -fx-border-radius: 30;
+    -fx-text-fill: #fff;
 }
 
 .table-view .column-header,
@@ -149,4 +151,12 @@
 .linear-grad
 {
     -fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8);
+}
+.text-field
+{
+    -fx-text-fill:white;
+}
+.JFXTextField
+{
+    -fx-prompt-text-fill: white;
 }
