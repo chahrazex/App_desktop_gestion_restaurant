@@ -1,17 +1,14 @@
 package Connectivity;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
-
-import javax.naming.Context;
+import Model.Drinks;
+import Model.Meals;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javax.swing.*;
 import java.sql.*;
 
 public class CennectionClass {
-    StackPane stack ;
+
     Connection connection ;
     public Connection getConnection() throws SQLException {
         String  dbName ="Restaurant" ;
@@ -52,30 +49,55 @@ public class CennectionClass {
         try {
             Connection connection=cennectionClass.getConnection() ;
             Statement statement =connection.createStatement();
-           int a= statement.executeUpdate("INSERT INTO "+table+" VALUES ('"+num+"','"+name+"','"+type+"','"+price+"')") ;
-           if (a==-1)
-           {
-
-           }
-           else
-           {
-               JFXDialogLayout content= new JFXDialogLayout() ;
-               content.setHeading(new Text("Sorry !"));
-               content.setBody(new Text("Username or Password is Empty"));
-               JFXDialog dialog=new JFXDialog(stack,content, JFXDialog.DialogTransition.CENTER) ;
-               JFXButton button=new JFXButton("OK");
-               button.setOnAction(event1 -> {
-                   dialog.close();
-               });
-               content.setActions(button);
-               dialog.show();
-           }
-
+           return statement.execute("INSERT INTO "+table+" VALUES ('"+num+"','"+name+"','"+type+"','"+price+"')");
         } catch (SQLException e) {
-            e.printStackTrace();
+            if (table.equals("Meals"))
+            {
+                JOptionPane.showMessageDialog(null,"Number or Name of meals exist");
+            }
+            if (table.equals("Drinks"))
+            {
+                JOptionPane.showMessageDialog(null,"Number or Name of drink exist");
+            }
         }
 
         return true ;
+    }
+    public ObservableList<Drinks> getDrinks()
+    {
+        CennectionClass cennectionClass =new CennectionClass() ;
+        ObservableList<Drinks> list = FXCollections.observableArrayList() ;
+        try {
+            Connection connection =cennectionClass.getConnection() ;
+            Statement statement=connection.createStatement();
+            ResultSet set=statement.executeQuery("SELECT * FROM Drinks") ;
+            while (set.next())
+            {
+                list.add(new Drinks(set.getInt("No_Drink"),set.getString("Name_Drink"),set.getString("Type_Drink"),
+                        set.getInt("Price_Drink")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list ;
+    }
+    public ObservableList<Meals> getMeals()
+    {
+        CennectionClass cennectionClass =new CennectionClass() ;
+        ObservableList<Meals> list = FXCollections.observableArrayList() ;
+        try {
+            Connection connection =cennectionClass.getConnection() ;
+            Statement statement=connection.createStatement();
+            ResultSet set=statement.executeQuery("SELECT * FROM Meals") ;
+            while (set.next())
+            {
+                list.add(new Meals(set.getInt("No_Meal"),set.getString("Name_Meal"),set.getString("Type_Meal"),
+                        set.getInt("Price_Meal")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list ;
     }
 
 }
