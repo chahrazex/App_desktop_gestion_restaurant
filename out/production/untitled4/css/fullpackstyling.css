@@ -160,3 +160,6 @@
 {
     -fx-prompt-text-fill: white;
 }
+.jfx-dialog-overlay-pane {
+    -fx-background-color:#1A172A;
+}

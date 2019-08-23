@@ -139,7 +139,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="NoDrink" labelFloat="true" prefHeight="31.0" prefWidth="178.0" />
+                              <JFXTextField fx:id="NoDrink" labelFloat="true" prefHeight="31.0" prefWidth="178.0" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" />
                            </children>
                            <VBox.margin>
                               <Insets top="56.0" />
@@ -152,7 +152,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="NameDrink" labelFloat="true" prefHeight="25.0" prefWidth="154.0" />
+                              <JFXTextField fx:id="NameDrink" labelFloat="true" prefHeight="25.0" prefWidth="154.0" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="567.0" prefHeight="66.0" prefWidth="278.0" spacing="5.0">
@@ -162,7 +162,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="PriceDrink" labelFloat="true" prefHeight="25.0" prefWidth="161.0" />
+                              <JFXTextField fx:id="PriceDrink" labelFloat="true" prefHeight="25.0" prefWidth="161.0" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="585.0" prefHeight="73.0" prefWidth="278.0" spacing="5.0">
@@ -175,7 +175,7 @@
                               <ComboBox fx:id="TypeDrink" prefHeight="27.0" prefWidth="162.0" promptText="Choose a type" stylesheets="@../css/fullpackstyling.css" />
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Add drink" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#AddDrinks" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Add drink" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -246,7 +246,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <JFXTextField labelFloat="true" prefHeight="25.0" prefWidth="501.0" />
+                              <JFXTextField labelFloat="true" prefHeight="25.0" prefWidth="501.0" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" />
                            </children>
                         </HBox>
                         <TableView fx:id="TableDrink" prefHeight="483.0" prefWidth="559.0">

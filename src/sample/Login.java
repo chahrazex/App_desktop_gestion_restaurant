@@ -1,15 +1,18 @@
 package sample;
 
 import Connectivity.CennectionClass;
-import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -20,15 +23,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class Login implements Initializable {
+public class Login extends StackPane implements Initializable {
     @FXML
     JFXTextField username  ;
     @FXML
     JFXPasswordField password ;
+    @FXML
+    StackPane stack ;
     public  void login(Event event) throws IOException {
         if(username.getText().isEmpty() || password.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "username or password is Empty");
+            JFXDialogLayout content= new JFXDialogLayout() ;
+            content.setHeading(new Text("Sorry !"));
+            content.setBody(new Text("Username or Password is Empty"));
+            JFXDialog dialog=new JFXDialog(stack,content, JFXDialog.DialogTransition.CENTER) ;
+            JFXButton button=new JFXButton("OK");
+            button.setOnAction(event1 -> {
+                dialog.close();
+            });
+            content.setActions(button);
+            dialog.show();
         }
         else
         {

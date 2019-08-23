@@ -1,10 +1,10 @@
 package sample;
 
 import Connectivity.CennectionClass;
+import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -17,20 +17,20 @@ public class Controller implements Initializable {
     public TextField numDrinks ;
     public TextField numMeals  ;
     public JFXTextField NoMeal ,NameMeal ,PriceMeal ;
+    public JFXTextField NoDrink ,NameDrink ,PriceDrink ;
     public ComboBox TypeMeal,TypeDrink ;
     public AnchorPane Meals ,Drinks;
     public void AddMeals()
     {
         CennectionClass cennectionClass=new CennectionClass() ;
-        try {
-            Connection connection =cennectionClass.getConnection() ;
-            Statement statement=connection.createStatement() ;
-            statement.executeUpdate("INSERT INTO MEALS (No_meal,Name_meal,Type_meal,Price_meal) " +
-                    "VALUES ('"+NoMeal.getText()+"','"+NameMeal.getText()+"','"+TypeMeal.getValue()+"','"+PriceMeal.getText()+"')");
-            numMeals.setText(CennectionClass.count("No_meal","Meals")+"");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        cennectionClass.Add("Meals",NoMeal.getText(),NameMeal.getText(),TypeMeal.getValue().toString(),PriceMeal.getText()) ;
+        numMeals.setText(CennectionClass.count("No_meal","Meals")+"");
+    }
+    public void AddDrinks()
+    {
+        CennectionClass cennectionClass=new CennectionClass() ;
+        cennectionClass.Add("Drinks",NoDrink.getText(),NameDrink.getText(),TypeDrink.getValue().toString(),PriceDrink.getText()) ;
+        numDrinks.setText(CennectionClass.count("No_drink","Drinks")+"");
     }
     public void showMeals()
     {
