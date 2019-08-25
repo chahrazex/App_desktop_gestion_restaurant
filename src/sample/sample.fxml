@@ -192,7 +192,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button layoutX="10.0" layoutY="270.0" mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Edit drink" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="270.0" mnemonicParsing="false" onAction="#EditDrinks" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Edit drink" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -207,7 +207,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button layoutX="10.0" layoutY="311.0" mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete drink" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="311.0" mnemonicParsing="false" onAction="#DeleteDrinks" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete drink" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -222,7 +222,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete all drink" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#clearD" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete all drink" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -251,7 +251,7 @@
                               <JFXTextField labelFloat="true" prefHeight="25.0" prefWidth="501.0" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" />
                            </children>
                         </HBox>
-                        <TableView fx:id="TableD" prefHeight="483.0" prefWidth="559.0">
+                        <TableView fx:id="TableD" onMouseClicked="#getSelectionD" prefHeight="483.0" prefWidth="559.0">
                            <columns>
                               <TableColumn fx:id="numCD" prefWidth="87.0" text="No. of drink" />
                               <TableColumn fx:id="nameCD" prefWidth="87.0" text="Name of drink" />
@@ -328,7 +328,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button layoutX="10.0" layoutY="270.0" mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Edit meal" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="270.0" mnemonicParsing="false" onAction="#EditMeals" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Edit meal" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -343,7 +343,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button layoutX="10.0" layoutY="311.0" mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete meal" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="311.0" mnemonicParsing="false" onAction="#DeleteMeals" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete meal" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -358,7 +358,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete all meal" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#clearM" prefWidth="278.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Delete all meal" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -387,7 +387,7 @@
                               <JFXTextField labelFloat="true" prefHeight="25.0" prefWidth="501.0" styleClass="JFXTextField" stylesheets="@../css/fullpackstyling.css" />
                            </children>
                         </HBox>
-                        <TableView fx:id="TableM" prefHeight="483.0" prefWidth="559.0" style="-fx-border-color: #131022;">
+                        <TableView fx:id="TableM" onMousePressed="#getSelectionM" prefHeight="483.0" prefWidth="559.0" style="-fx-border-color: #131022;">
                           <columns>
                             <TableColumn fx:id="numCM" prefWidth="87.0" text="N° of meal" />
                             <TableColumn fx:id="nameCM" prefWidth="87.0" text="Name of meal" />

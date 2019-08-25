@@ -35,37 +35,144 @@ public class Controller implements Initializable {
     public TableColumn<Drinks,String> typeCD ;
     public TableColumn<Drinks,Integer> costCD ;
 
+    public  int indexM=-1 ,indexD=-1;
 
-    public void AddMeals()
-    {
-        CennectionClass cennectionClass=new CennectionClass() ;
-       int id =Integer.parseInt(NoMeal.getText());
-        String name =NameMeal.getText() ;
-        String type =TypeMeal.getValue().toString();
-        int cost =Integer.parseInt(PriceMeal.getText());
-
-        cennectionClass.Add("Meals",String.valueOf(id),name,type,String.valueOf(cost)) ;
-        listM.add(new Meals(id ,name,type,cost)) ;
-        numMeals.setText(CennectionClass.count("No_meal","Meals")+"");
-    }
-    public void AddDrinks()
-    {
-        CennectionClass cennectionClass=new CennectionClass() ;
-
-       cennectionClass.Add("Drinks",NoDrink.getText(),NameDrink.getText(),
-            TypeDrink.getValue().toString(),PriceDrink.getText()) ;
-        numDrinks.setText(CennectionClass.count("No_drink","Drinks")+"");
-    }
+    /*----------------------Fonctions of Meals------------------------*/
     public void showMeals()
     {
         Meals.setVisible(true);
         Drinks.setVisible(false);
     }
+    public void AddMeals()
+    {
+        try {
+            CennectionClass cennectionClass=new CennectionClass() ;
+            int id =Integer.parseInt(NoMeal.getText());
+            String name =NameMeal.getText() ;
+            String type =TypeMeal.getValue().toString();
+            int cost =Integer.parseInt(PriceMeal.getText());
+            cennectionClass.Add("Meals",String.valueOf(id),name,type,String.valueOf(cost)) ;
+            listM.add(new Meals(id ,name,type,cost)) ;
+            numMeals.setText(CennectionClass.count("No_meal","Meals")+"");
+            clearM();
+        }catch (Exception e)
+        {
+
+        }
+
+    }
+    public void  EditMeals()
+    {
+        try {
+            int id =Integer.parseInt(NoMeal.getText());
+            String name =NameMeal.getText() ;
+            String type =TypeMeal.getValue().toString();
+            int cost =Integer.parseInt(PriceMeal.getText());
+            CennectionClass cennectionClass=new CennectionClass() ;
+            cennectionClass.Edit("Meals","where No_meal="+id ,name,type,cost)  ;
+            listM.set(indexM ,new Meals(listM.get(indexM).getNum() ,name,type,cost)) ;
+            clearM();
+        }catch (Exception e){}
+
+    }
+    public  void DeleteMeals()
+    {
+        try {
+            int id =Integer.parseInt(NoMeal.getText());
+            CennectionClass cennectionClass=new CennectionClass() ;
+            cennectionClass.Delete("Meals","where No_meal="+id);
+            numMeals.setText(CennectionClass.count("No_meal","Meals")+"");
+            listM.remove(indexM);
+        }catch (Exception e){}
+        clearM();
+
+    }
+    public void  getSelectionM()
+    {
+        indexM=TableM.getSelectionModel().getSelectedIndex() ;
+
+        if (indexM<=-1) {
+            return;
+        }
+        else {
+            NoMeal.setText(numCM.getCellData(indexM).toString());
+            NameMeal.setText(nameCM.getCellData(indexM));
+            TypeMeal.getSelectionModel().select(typeCM.getCellData(indexM));
+            PriceMeal.setText(costCM.getCellData(indexM).toString());
+        }
+    }
+    public void clearM()
+    {
+        NameMeal.clear();
+        NoMeal.clear();
+        PriceMeal.clear();
+        TypeMeal.getSelectionModel().select(-1);
+    }
+    /*-----------------------Fonctions of Drinks----------------------*/
     public void showDrinks()
     {
         Meals.setVisible(false);
         Drinks.setVisible(true);
     }
+    public void AddDrinks()
+    {
+        try {
+            CennectionClass cennectionClass=new CennectionClass() ;
+            int id =Integer.parseInt(NoDrink.getText());
+            String name =NameDrink.getText() ;
+            String type =TypeDrink.getValue().toString();
+            int cost =Integer.parseInt(PriceDrink.getText());
+            cennectionClass.Add("Drinks",String.valueOf(id),name, type,String.valueOf(cost)) ;
+            listD.add(new Drinks(id ,name,type,cost)) ;
+            numDrinks.setText(CennectionClass.count("No_drink","Drinks")+"");
+            clearD();
+        }catch (Exception e) {}
+
+    }
+    public void  EditDrinks()
+    {
+        try {
+            CennectionClass cennectionClass=new CennectionClass() ;
+            int id =Integer.parseInt(NoDrink.getText());
+            String name =NameDrink.getText() ;
+            String type =TypeDrink.getValue().toString();
+            int cost =Integer.parseInt(PriceDrink.getText());
+            cennectionClass.Edit("Drinks","where No_drink="+id ,name,type,cost)  ;
+            listD.set(indexD ,new Drinks(listD.get(indexD).getNum() ,name,type,cost)) ;
+            clearD();
+        }catch (Exception e){}
+
+    }
+    public  void DeleteDrinks()
+    {
+        try {
+            int id =Integer.parseInt(NoDrink.getText());
+            CennectionClass cennectionClass=new CennectionClass() ;
+            cennectionClass.Delete("Drinks","where No_drink="+id);
+            numDrinks.setText(CennectionClass.count("No_drink","Drinks")+"");
+            listD.remove(indexD);
+        }catch (Exception e){}
+        clearD();
+    }
+    public void clearD()
+    {
+        NameDrink.clear();
+        NoDrink.clear();
+        PriceDrink.clear();
+        TypeDrink.getSelectionModel().select(-1);
+    }
+    public void  getSelectionD()
+    {
+        indexD=TableD.getSelectionModel().getSelectedIndex() ;
+       if(indexD !=-1)
+       {
+            NoDrink.setText(numCD.getCellData(indexD).toString());
+            NameDrink.setText(nameCD.getCellData(indexD));
+           TypeDrink.getSelectionModel().select(typeCD.getCellData(indexD));
+            PriceDrink.setText(costCD.getCellData(indexD).toString());
+        }
+    }
+    /*-------------------------------------------------------------------*/
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         numCM.setCellValueFactory(new PropertyValueFactory<Meals,Integer>("num"));

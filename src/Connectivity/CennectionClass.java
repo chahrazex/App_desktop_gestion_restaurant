@@ -99,5 +99,49 @@ public class CennectionClass {
         }
         return list ;
     }
+    public boolean Edit(String table ,String cond ,String name , String type, int cost)
+    {
+        CennectionClass cennectionClass=new CennectionClass() ;
+        String sql  ;
+        if (table.equals("Drinks"))
+        {
+            sql="UPDATE Drinks SET Name_drink ='"+name+"', Type_drink='"+type+"', Price_drink='"+cost+ "'"+cond;
+        }
+        else
+        {
+            sql="UPDATE Meals SET  Name_meal ='"+name+"', Type_meal='"+type+"', Price_meal="+cost+" "+cond;
+        }
+
+        try {
+            Connection connection=cennectionClass.getConnection() ;
+            Statement statement =connection.createStatement() ;
+              statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return  false ;
+    }
+    public boolean Delete(String table ,String cond)
+    {
+        CennectionClass cennectionClass=new CennectionClass() ;
+        String sql ;
+        if (table.equals("Meals"))
+        {
+             sql="DELETE FROM Meals "+cond ;
+        }
+        else
+        {
+             sql="DELETE FROM Drinks "+cond ;
+        }
+
+        try {
+            Connection connection=cennectionClass.getConnection();
+            Statement statement=connection.createStatement() ;
+            return statement.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 }
